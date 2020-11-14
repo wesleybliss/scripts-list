@@ -1,0 +1,13 @@
+{
+  "name": "scripts-list",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.js",
+  "bin": {
+    "scripts-list": "./src/index.js"
+  },
+  "dependencies": {
+    "ansi-colors": "^4.1.1",
+    "yargs": "^16.1.0"
+  }
+}
