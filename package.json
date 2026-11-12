@@ -1,6 +1,6 @@
 {
     "name": "scripts-list",
-    "version": "2.0.0",
+    "version": "1.0.3",
     "description": "List the scripts in your package.json, with descriptions",
     "keywords": [
         "package.json",
