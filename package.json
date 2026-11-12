@@ -1,13 +1,55 @@
 {
-  "name": "scripts-list",
-  "version": "1.0.0",
-  "license": "MIT",
-  "main": "src/index.js",
-  "bin": {
-    "scripts-list": "./src/index.js"
-  },
-  "dependencies": {
-    "ansi-colors": "^4.1.1",
-    "yargs": "^16.1.0"
-  }
+    "name": "scripts-list",
+    "version": "2.0.0",
+    "description": "List the scripts in your package.json, with descriptions",
+    "keywords": [
+        "package.json",
+        "scripts",
+        "npm-scripts",
+        "tasks",
+        "cli"
+    ],
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "bin": {
+        "scripts-list": "./dist/cli.js"
+    },
+    "files": [
+        "dist",
+        "!dist/**/*.map"
+    ],
+    "engines": {
+        "node": ">=22.12"
+    },
+    "sideEffects": false,
+    "scripts": {
+        "build": "rm -rf dist && tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+        "dev": "node src/cli.ts",
+        "typecheck": "tsc",
+        "lint": "eslint . --fix --cache",
+        "lint:check": "eslint .",
+        "test": "node --test test/",
+        "prepublishOnly": "pnpm typecheck && pnpm lint:check && pnpm test && pnpm build"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@stylistic/eslint-plugin": "^5.10.0",
+        "@types/node": "^26.6.6",
+        "eslint": "^10.14.0",
+        "eslint-plugin-indent-empty-lines": "^2.0.2",
+        "eslint-plugin-simple-import-sort": "^14.0.0",
+        "globals": "^17.14.0",
+        "jiti": "^2.7.0",
+        "typescript": "^6.0.3",
+        "typescript-eslint": "^8.72.2"
+    }
 }
